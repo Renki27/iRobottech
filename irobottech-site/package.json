@@ -5,7 +5,9 @@
   "dependencies": {
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
+    "cleave.js": "^1.4.4",
     "mdbreact": "^4.8.2",
+    "mysql": "^2.16.0",
     "react": "^16.6.1",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.1",
