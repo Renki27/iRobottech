@@ -1,21 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Navbar from '../components/Navbar.jsx';
 import FooterPage from '../components/Footer.jsx';
-import HomeCarousel from '../components/Carousel';
+import { View, Mask } from 'mdbreact';
 
-class Home extends Component {
+
+class RegisterStudent extends Component {
+
+
     render() {
         return (
+
             <div>
                 <Navbar />
-                <HomeCarousel />
                 <div className="container">
-                
+                   
+
+
                 </div>
                 <FooterPage />
             </div>
+
         );
     }
 }
-
-export default Home;
+export default RegisterStudent;

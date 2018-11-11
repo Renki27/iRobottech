@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar.jsx';
-import Footer from '../components/Footer.jsx';
-//import { Container, Row, Col, Input, Button, Fa, Modal, ModalBody, ModalFooter } from 'mdbreact';
+import FooterPage from '../components/Footer.jsx';
 import { Container, Row, Col, Input, Button, Fa, Card, CardBody } from 'mdbreact';
 
 
@@ -50,7 +49,7 @@ class Contact extends Component {
                         </Row>
                     </Container>
                 </div>
-                <Footer />
+                <FooterPage />
             </div>
         );
     }

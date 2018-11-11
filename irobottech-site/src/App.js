@@ -4,6 +4,7 @@ import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
+import RegisterStudent from './pages/RegisterStudent';
 import './App.css';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route exact path="/About" component={About} />
           <Route exact path="/Contact" component={Contact} />
           <Route exact path="/Login" component={Login} />
+          <Route exact path="/RegisterStudent" component={RegisterStudent} />
         </div>
       </Router>
     );
@@ -23,3 +25,5 @@ class App extends Component {
 }
 
 export default App;
+
+//graphQL

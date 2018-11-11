@@ -1,67 +1,55 @@
 import React, { Component } from 'react';
-//import { Carousel } from 'react-bootstrap';
 import Slide1 from '../images/slide1.jpg';
 import Slide2 from '../images/slide2.jpg';
 import Slide3 from '../images/slide3.jpg';
+import { Container, Carousel, CarouselInner, CarouselItem, View, Mask, CarouselCaption } from 'mdbreact';
 import './Carousel.css';
 
 class HomeCarousel extends Component {
     render() {
         return (
 
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-                    <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="first-slide" src={Slide1} alt="First slide" />
-                        <div class="container">
-                            <div class="carousel-caption text-left">
-                                <h1>Example headline.</h1>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="second-slide" src={Slide2} alt="Second slide" />
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>Another example headline.</h1>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="third-slide" src={Slide3} alt="Third slide" />
-                        <div class="container">
-                            <div class="carousel-caption text-right">
-                                <h1>One more for good measure.</h1>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-
-
-
-
-
-
+            <Container>
+                <Carousel
+                    activeItem={1}
+                    length={3}
+                    showControls={false}
+                    showIndicators={true}
+                    className="z-depth-1">
+                    <CarouselInner>
+                        <CarouselItem itemId="1">
+                            <View>
+                                <img className="d-block w-100" src={Slide1} alt="First slide" />
+                                <Mask overlay="black-light"></Mask>
+                            </View>
+                            <CarouselCaption>
+                                <h3 className="h3-responsive">Light mask</h3>
+                                <p>First text</p>
+                            </CarouselCaption>
+                        </CarouselItem>
+                        <CarouselItem itemId="2">
+                            <View>
+                                <img className="d-block w-100" src={Slide2} alt="Second slide" />
+                                <Mask overlay="black-light"></Mask>
+                            </View>
+                            <CarouselCaption>
+                                <h3 className="h3-responsive">Strong mask</h3>
+                                <p>Second text</p>
+                            </CarouselCaption>
+                        </CarouselItem>
+                        <CarouselItem itemId="3">
+                            <View>
+                                <img className="d-block w-100" src={Slide3} alt="Third slide" />
+                                <Mask overlay="black-light"></Mask>
+                            </View>
+                            <CarouselCaption>
+                                <h3 className="h3-responsive">Slight mask</h3>
+                                <p>Third text</p>
+                            </CarouselCaption>
+                        </CarouselItem>
+                    </CarouselInner>
+                </Carousel>
+            </Container>
         );
     }
 }

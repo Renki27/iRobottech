@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import { Container, Row, Col, Input, Button, Fa, Card, CardBody } from 'mdbreact';
+import { Container, Row, Col, Input, Button, Card } from 'mdbreact';
 import Navbar from '../components/Navbar.jsx';
-import Footer from '../components/Footer.jsx';
+import FooterPage from '../components/Footer.jsx';
 import "./Login.css";
 
 class Login extends Component {
@@ -56,7 +55,7 @@ class Login extends Component {
             </Row>
           </section>
         </Container>
-        <Footer />
+        <FooterPage />
 
       </div>
     );
