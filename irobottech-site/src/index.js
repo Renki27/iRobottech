@@ -23,7 +23,7 @@ app.use(bodyparser.json());
 app.listen(3000, () => console.log('Express server esta corriendo sobre el puerto 3000'));
 
 var mysqlConnection = mysql.createConnection({
-    host: 'irobottech.com',
+    host: '18.224.16.139',
     user: 'root',
     password: 'root',
     database: 'irobottechdb',
