@@ -21,7 +21,7 @@ class MyNavbar extends Component {
                                 <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/registerStudent">Acerca de nosotros</Link>
+                                <Link className="nav-link" to="/RegisterStudent">Acerca de nosotros</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/contact">Contacto</Link>
