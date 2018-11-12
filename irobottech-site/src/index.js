@@ -13,13 +13,14 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
+/*
 const mysql = require('mysql');
 const express = require('express');
 var app = express();
 const bodyparser = require('body-parser');
 app.use(bodyparser.json());
-
+*/
+/*
 app.listen(3000, () => console.log('Express server esta corriendo sobre el puerto 3000'));
 
 var mysqlConnection = mysql.createConnection({
@@ -35,4 +36,4 @@ mysqlConnection.connect((err) => {
     else
         console.log('DB conexion fallida');
 }
-);
+);*/

@@ -31,7 +31,7 @@ class FooterPage extends Component {
             <div className="footer-copyright text-center py-3">
               <Container fluid>
                 &copy; {new Date().getFullYear()} Copyright:{" "}
-                <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
+                <a href="https://www.iRobottech.com"> iRobottech.com </a>
               </Container>
             </div>
           </Footer>
