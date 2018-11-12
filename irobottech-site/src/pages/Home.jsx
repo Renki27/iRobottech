@@ -6,7 +6,7 @@ import HomeCarousel from '../components/Carousel';
 class Home extends Component {
     render() {
         return (
-            <div>
+            <div >
                 <Navbar />
                 <HomeCarousel />
                 <div className="container">

@@ -3,12 +3,8 @@ import Navbar from '../components/Navbar.jsx';
 import FooterPage from '../components/Footer.jsx';
 import PersonModule from '../components/PersonModule';
 import AccountModule from '../components/AccountModule';
-import StudentModule from '../components/StudentModule';
-import './RegisterStudent.css';
 import { Container, Row, Col, Card, CardBody } from 'mdbreact';
-
-
-class RegisterStudent extends Component {
+class RegisterAdmin extends Component {
 
     onClick() {
         alert("CLICK!!")
@@ -23,12 +19,11 @@ class RegisterStudent extends Component {
                     <Row>
                         <Col md="8" className="mx-auto">
                             <Card>
-                                <h3 className="text-center font-weight-bold pl-0 my-4">Registro de estudiante</h3>
+                                <h3 className="text-center font-weight-bold pl-0 my-4">Registro de Administrador</h3>
                                 <CardBody>
                                     <label class="cyan-text">Datos personales:</label>
                                     <PersonModule />
-                                    <p class="cyan-text">Datos del encargado:</p>
-                                    <StudentModule />
+
                                     <p class="cyan-text">Datos de la cuenta:</p>
                                     <AccountModule />
                                     <div className="text-center py-4 mt-3">
@@ -46,4 +41,4 @@ class RegisterStudent extends Component {
 
 
 }
-export default RegisterStudent;
+export default RegisterAdmin;

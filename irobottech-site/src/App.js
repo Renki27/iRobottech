@@ -6,12 +6,16 @@ import Contact from './pages/Contact';
 import Login from './pages/Login';
 import RegisterStudent from './pages/RegisterStudent';
 import AdminDashboard from './pages/AdminDashboard'
+import RegisterProfessor from './pages/RegisterProfessor'
+import RegisterSecretary from './pages/RegisterSecretary'
+import RegisterAdmin from './pages/RegisterAdmin'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <Router>
+
         <div>
           {/*Component en minuscula*/}
           <Route exact path="/" component={Home} />
@@ -20,6 +24,9 @@ class App extends Component {
           <Route exact path="/Login" component={Login} />
           <Route exact path="/RegisterStudent" component={RegisterStudent} />
           <Route exact path="/AdminDashboard" component={AdminDashboard} />
+          <Route exact path="/RegisterProfessor" component={RegisterProfessor} />
+          <Route exact path="/RegisterSecretary" component={RegisterSecretary} />
+          <Route exact path="/RegisterAdmin" component={RegisterAdmin} />
         </div>
       </Router>
     );
@@ -27,5 +34,3 @@ class App extends Component {
 }
 
 export default App;
-
-//graphQL

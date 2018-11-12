@@ -7,7 +7,7 @@ class StudentModule extends Component {
     render() {
         return (
 
-            <div className="container">
+            <div className="container mx-auto">
                 <form>
                     <div className="row">
                         <div className="col">

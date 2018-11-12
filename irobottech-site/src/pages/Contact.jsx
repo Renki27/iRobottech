@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../components/Navbar.jsx';
 import FooterPage from '../components/Footer.jsx';
 import { Container, Row, Col, Input, Button, Fa, Card, CardBody } from 'mdbreact';
-
+import './Contact.css';
 
 
 class Contact extends Component {
@@ -28,7 +28,7 @@ class Contact extends Component {
                 <div className="container-contact">
                     <Container>
                         <Row>
-                            <Col md="6">
+                            <Col md="6" className="mx-auto">
                                 <Card>
                                     <CardBody>
                                         <form>

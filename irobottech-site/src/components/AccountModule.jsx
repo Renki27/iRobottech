@@ -27,7 +27,7 @@ class AccountModule extends Component {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <Input label="Confirma Email"  hint="ejemplo@hotmail.com" group type="text" validate error="wrong" success="right" />
+                        <Input label="Confirma Email" hint="ejemplo@hotmail.com" group type="text" validate error="wrong" success="right" />
                     </div>
                 </div>
             </div >

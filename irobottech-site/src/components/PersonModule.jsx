@@ -25,17 +25,18 @@ class PersonModule extends Component {
                         <div className="col">
                             <Input label="Cédula" hint="9 dígitos" group type="text" validate error="wrong" success="right" />
                         </div>
-                        <div className="col-8">
+                        <div className="col-6">
                             <Input label="Fecha Nacimiento" type="date" hint="00/00/0000 " validate error="wrong" success="right" />
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-8">
-                            <Input label="Dirección" group type="text" validate error="wrong" success="right" />
                         </div>
                         <div className="col">
                             <Input label="Teléfono" group type="text" validate error="wrong" success="right" />
                         </div>
+                    </div>
+                    <div className="row">
+                        <div className="col">
+                            <Input label="Dirección" group type="textarea" hint="Dirección exacta" rows="2"validate error="wrong" success="right" />
+                        </div>
+
                     </div>
                 </form>
             </div>
