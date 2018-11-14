@@ -9,13 +9,13 @@ import AdminDashboard from './pages/AdminDashboard'
 import RegisterProfessor from './pages/RegisterProfessor'
 import RegisterSecretary from './pages/RegisterSecretary'
 import RegisterAdmin from './pages/RegisterAdmin'
+
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <Router>
-
         <div>
           {/*Component en minuscula*/}
           <Route exact path="/" component={Home} />
@@ -27,6 +27,7 @@ class App extends Component {
           <Route exact path="/RegisterProfessor" component={RegisterProfessor} />
           <Route exact path="/RegisterSecretary" component={RegisterSecretary} />
           <Route exact path="/RegisterAdmin" component={RegisterAdmin} />
+
         </div>
       </Router>
     );
