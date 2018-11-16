@@ -14,14 +14,11 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
 /*
-const mysql = require('mysql');
-const express = require('express');
-var app = express();
+
 const bodyparser = require('body-parser');
 app.use(bodyparser.json());
 */
 /*
-app.listen(3000, () => console.log('Express server esta corriendo sobre el puerto 3000'));
 
 var mysqlConnection = mysql.createConnection({
     host: '18.224.16.139',

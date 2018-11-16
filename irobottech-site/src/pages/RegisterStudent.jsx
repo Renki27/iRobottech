@@ -20,7 +20,9 @@ class RegisterStudent extends Component {
             guardianID: '',
             emergencyPhone: '',
             email: '',
-            emailConfirm: ''
+            emailConfirm: '',
+            emailErr: false
+
         };
 
 
@@ -28,18 +30,21 @@ class RegisterStudent extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.inputNumberValidator = this.inputNumberValidator.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
 
     }
 
 
     handleInputChange(event) {
+        /*
         const target = event.target;
         const value = target.value;
         const name = target.name;
 
         this.setState({
             [name]: value
-        });
+        });*/
+        this.setState({ ...this.state, [event.target.name]: event.target.value })
     }
 
     inputNumberValidator(event) {
@@ -54,6 +59,20 @@ class RegisterStudent extends Component {
             this.setState({
                 [name]: value
             });
+        }
+    }
+
+    onChangeEmail(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (value.match(re) || (value === '')) {
+            this.setState({ emailErr: false });
+            this.setState({ [name]: value });
+        } else {
+            this.setState({ emailErr: true });
         }
     }
 
@@ -80,6 +99,7 @@ class RegisterStudent extends Component {
               email: ${this.state.email}                          
               `);*/
         evt.preventDefault();
+        evt.target.className += ' was-validated';
         console.log(this.state);
         //axios.post
     }
@@ -91,169 +111,168 @@ class RegisterStudent extends Component {
         return re.test(event);
     }
 
-    validateNumbers(evt) {
-        const keyCode = evt.keyCode || evt.which;
-        const keyValue = String.fromCharCode(keyCode);
-        if (/\+|-/.test(keyValue))
-            evt.preventDefault();
-    }
+
+
 
 
     render() {
         return (
             <div>
                 <Navbar />
-                <Container >
-                    <Row>
+                <Container className="mt-5" >
+                    <Row className="mt-6">
                         <Col md="8" className="mx-auto">
                             <Card>
                                 <h3 className="text-center font-weight-bold pl-0 my-4">Registro de estudiante</h3>
                                 <CardBody>
+                                    <form className='needs-validation' onSubmit={this.handleSubmit} noValidate>
+                                        <label className="cyan-text">Datos personales:</label>
+                                        <div className="row">
+                                            <div className="col">
+                                                <Input
+                                                    name="name"
+                                                    label="Nombre Completo"
+                                                    maxLength="25"
+                                                    id="defaultFormRegisterNameEx"
+                                                    value={this.state.name}
+                                                    onChange={this.handleInputChange}
+                                                    className="form-control"
+                                                    type="text"
+                                                    required
+                                                />
+                                                <span className="invalid-feedback">Please provide a valid zip.</span>
+                                                <div style={{top: 'auto'}} className="valid-tooltip">Looks good!</div>
+                                            </div>
+                                            <div className="col">
+                                                <Input
+                                                    label="Apellidos"
+                                                    name="lastName"
+                                                    maxLength="25"
+                                                    value={this.state.lastName}
+                                                    onChange={this.handleInputChange}
+                                                    type="text"
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col">
+                                                <Input
+                                                    label="Cédula"
+                                                    name="idNumber"
+                                                    maxLength="25"
+                                                    value={this.state.idNumber}
+                                                    onChange={this.inputNumberValidator}
+                                                    type="text"
+                                                    required
 
-                                    <div className="container">
-                                        <form onSubmit={this.handleSubmit}>
-                                            <label className="cyan-text">Datos personales:</label>
-                                            <div className="row">
-                                                <div className="col">
-                                                    <Input
-                                                        name="name"
-                                                        label="Nombre Completo"
-                                                        maxLength="25"
-                                                        value={this.state.name}
-                                                        onChange={this.handleInputChange}
-                                                        type="text"
-                                                        required
-                                                    />
+                                                />
+                                            </div>
+                                            <div className="col-6">
+                                                <Input
+                                                    label="Fecha Nacimiento"
+                                                    name="birthDate"
+                                                    value={this.state.birthDate}
+                                                    onChange={this.handleInputChange}
+                                                    type="date"
+                                                    hint="00/00/0000 "
+                                                    required />
+                                            </div>
+                                            <div className="col">
+                                                <Input
+                                                    label="Teléfono"
+                                                    name="phone"
+                                                    maxLength="8"
+                                                    value={this.state.phone}
+                                                    onChange={this.inputNumberValidator}
+                                                    type="text"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col">
+                                                <Input
+                                                    label="Dirección"
+                                                    name="address"
+                                                    value={this.state.address}
+                                                    onChange={this.handleInputChange}
+                                                    type="textarea"
+                                                    hint="Dirección exacta"
+                                                    rows="1"
+                                                    maxLength="250"
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                        <p className="cyan-text">Datos del encargado:</p>
+                                        <div className="row">
+                                            <div className="col">
+                                                <Input
+                                                    label="Nombre Completo Encargado"
+                                                    name="guardianName"
+                                                    value={this.state.guardianName}
+                                                    onChange={this.handleInputChange}
+                                                    type="text"
+                                                    maxLength="50"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col">
+                                                <Input
+                                                    label="Cédula de encargado"
+                                                    name="guardianID"
+                                                    maxLength="25"
+                                                    value={this.state.guardianID}
+                                                    onChange={this.inputNumberValidator}
+                                                    type="text"
+                                                    required />
+                                            </div>
+                                            <div className="col">
+                                                <Input
+                                                    label="Teléfono de encargado"
+                                                    name="emergencyPhone"
+                                                    maxLength="8"
+                                                    value={this.state.emergencyPhone}
+                                                    onChange={this.inputNumberValidator}
+                                                    type="text"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <p className="cyan-text">Datos de la cuenta:</p>
+                                        <div className="row">
+                                            <div className="col">
+                                                <Input
+                                                    label="Email"
+                                                    name="email"
+                                                    maxLength="30"
+                                                    value={this.state.email}
+                                                    onChange={this.handleInputChange}
+                                                    hint="ejemplo@mail.com"
+                                                    type="email"
+                                                    required />
+                                                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col">
+                                                <Input
+                                                    label="Confirma Email"
+                                                    name="emailConfirm"
+                                                    maxLength="30"
 
-                                                </div>
-                                                <div className="col">
-                                                    <Input
-                                                        label="Apellidos"
-                                                        name="lastName"
-                                                        maxLength="25"
-                                                        value={this.state.lastName}
-                                                        onChange={this.handleInputChange}
-                                                        type="text"
-                                                        required
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col">
-                                                    <Input
-                                                        label="Cédula"
-                                                        name="idNumber"
-                                                        maxLength="25"
-                                                        value={this.state.idNumber}
-                                                        onChange={this.inputNumberValidator}
-                                                        type="text"
-                                                        required
+                                                    onChange={this.onChangeEmail}
+                                                    hint="ejemplo@mail.com"
+                                                    type="email"
+                                                    required />
 
-                                                    />
-                                                </div>
-                                                <div className="col-6">
-                                                    <Input
-                                                        label="Fecha Nacimiento"
-                                                        name="birthDate"
-                                                        value={this.state.birthDate}
-                                                        onChange={this.handleInputChange}
-                                                        type="date"
-                                                        hint="00/00/0000 "
-                                                        required />
-                                                </div>
-                                                <div className="col">
-                                                    <Input
-                                                        label="Teléfono"
-                                                        name="phone"
-                                                        maxLength="8"
-                                                        value={this.state.phone}
-                                                        onChange={this.inputNumberValidator}
-                                                        type="text"
-                                                        required />
-                                                </div>
                                             </div>
-                                            <div className="row">
-                                                <div className="col">
-                                                    <Input
-                                                        label="Dirección"
-                                                        name="address"
-                                                        value={this.state.address}
-                                                        onChange={this.handleInputChange}
-                                                        type="textarea"
-                                                        hint="Dirección exacta"
-                                                        rows="1"
-                                                        maxLength="250"
-                                                        required
-                                                    />
-                                                </div>
-                                            </div>
-                                            <p className="cyan-text">Datos del encargado:</p>
-                                            <div className="row">
-                                                <div className="col">
-                                                    <Input
-                                                        label="Nombre Completo Encargado"
-                                                        name="guardianName"
-                                                        value={this.state.guardianName}
-                                                        onChange={this.handleInputChange}
-                                                        type="text"
-                                                        maxLength="50"
-                                                        required />
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col">
-                                                    <Input
-                                                        label="Cédula de encargado"
-                                                        name="guardianID"
-                                                        maxLength="25"
-                                                        value={this.state.guardianID}
-                                                        onChange={this.inputNumberValidator}
-                                                        type="text"
-                                                        required />
-                                                </div>
-                                                <div className="col">
-                                                    <Input
-                                                        label="Teléfono de encargado"
-                                                        name="emergencyPhone"
-                                                        maxLength="8"
-                                                        value={this.state.emergencyPhone}
-                                                        onChange={this.inputNumberValidator}
-                                                        type="text"
-                                                        required />
-                                                </div>
-                                            </div>
-                                            <p className="cyan-text">Datos de la cuenta:</p>
-                                            <div className="row">
-                                                <div className="col">
-                                                    <Input
-                                                        label="Email"
-                                                        name="email"
-                                                        maxLength="30"
-                                                        value={this.state.email}
-                                                        onChange={this.handleInputChange}
-                                                        hint="ejemplo@mail.com"
-                                                        type="email"
-                                                        required />
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col">
-                                                    <Input
-                                                        label="Confirma Email"
-                                                        name="emailConfirm"
-                                                        maxLength="30"
-                                                        value={this.state.emailConfirm}
-                                                        onChange={this.handleInputChange}
-                                                        hint="ejemplo@mail.com"
-                                                        type="email"
-                                                        required />
-                                                </div>
-                                            </div>
-                                            <div className="text-center py-4 mt-3">
-                                                <button className="btn btn-outline-deep-orange" type="submit">Registrar</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                        <div className="text-center py-4 mt-3">
+                                            <button className="btn btn-outline-deep-orange" type="submit">Registrar</button>
+                                        </div>
+                                    </form>
+
                                 </CardBody>
                             </Card>
                         </Col>
