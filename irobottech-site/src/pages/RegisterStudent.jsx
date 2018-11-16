@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Navbar from '../components/Navbar.jsx';
 import FooterPage from '../components/Footer.jsx';
 import './RegisterStudent.css';
-import { Container, Row, Col, Card, CardBody, Input } from 'mdbreact';
+import { Container, Row, Col, Card, CardBody, Input, toast } from 'mdbreact';
 
 
 
@@ -10,8 +10,10 @@ class RegisterStudent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            lastName: '',
+            firstName: '',
+            secondName: '',
+            lastName1: '',
+            lastName2: '',
             idNumber: '',
             birthDate: '',
             phone: '',
@@ -20,9 +22,7 @@ class RegisterStudent extends Component {
             guardianID: '',
             emergencyPhone: '',
             email: '',
-            emailConfirm: '',
-            emailErr: false
-
+            emailConfirm: ''
         };
 
 
@@ -36,15 +36,15 @@ class RegisterStudent extends Component {
 
 
     handleInputChange(event) {
-        /*
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
 
+        const { name, value } = event.target;
         this.setState({
             [name]: value
-        });*/
-        this.setState({ ...this.state, [event.target.name]: event.target.value })
+        });
+
+        //this.setState({ ...this.state, [event.target.name]: event.target.value })
+
+
     }
 
     inputNumberValidator(event) {
@@ -85,23 +85,21 @@ class RegisterStudent extends Component {
 
 
     handleSubmit = evt => {
-        /* alert(
-             `Datos:
-              Nombre: ${this.state.name} 
-              Apellido: ${this.state.lastName}
-              idNumber: ${this.state.idNumber} 
-              birthDate: ${this.state.birthDate} 
-              phone: ${this.state.phone} 
-              address: ${this.state.address} 
-              guardianName: ${this.state.guardianName} 
-              guardianID:${this.state.guardianID} 
-              emergencyPhone: ${this.state.emergencyPhone} 
-              email: ${this.state.email}                          
-              `);*/
+        fetch('/ruta', {
+            method: 'POST',
+            body: JSON.stringify(this.state),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(err => console.error(err));
         evt.preventDefault();
-        evt.target.className += ' was-validated';
         console.log(this.state);
-        //axios.post
     }
 
 
@@ -110,8 +108,6 @@ class RegisterStudent extends Component {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(event);
     }
-
-
 
 
 
@@ -125,30 +121,50 @@ class RegisterStudent extends Component {
                             <Card>
                                 <h3 className="text-center font-weight-bold pl-0 my-4">Registro de estudiante</h3>
                                 <CardBody>
-                                    <form className='needs-validation' onSubmit={this.handleSubmit} noValidate>
+                                    <form className='needs-validation' onSubmit={this.handleSubmit}>
                                         <label className="cyan-text">Datos personales:</label>
                                         <div className="row">
                                             <div className="col">
                                                 <Input
-                                                    name="name"
-                                                    label="Nombre Completo"
+                                                    name="firstName"
+                                                    label="Primer Nombre"
                                                     maxLength="25"
-                                                    id="defaultFormRegisterNameEx"
-                                                    value={this.state.name}
+                                                    value={this.state.firstName}
                                                     onChange={this.handleInputChange}
                                                     className="form-control"
                                                     type="text"
                                                     required
                                                 />
-                                                <span className="invalid-feedback">Please provide a valid zip.</span>
-                                                <div style={{top: 'auto'}} className="valid-tooltip">Looks good!</div>
                                             </div>
                                             <div className="col">
                                                 <Input
-                                                    label="Apellidos"
-                                                    name="lastName"
+                                                    name="secondName"
+                                                    label="Segundo Nombre"
                                                     maxLength="25"
-                                                    value={this.state.lastName}
+                                                    value={this.state.secondName}
+                                                    onChange={this.handleInputChange}
+                                                    className="form-control"
+                                                    type="text"
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="col">
+                                                <Input
+                                                    label="Primer Apellido"
+                                                    name="lastName1"
+                                                    maxLength="25"
+                                                    value={this.state.lastName1}
+                                                    onChange={this.handleInputChange}
+                                                    type="text"
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="col">
+                                                <Input
+                                                    label="Segundo Apellido"
+                                                    name="lastName2"
+                                                    maxLength="25"
+                                                    value={this.state.lastName2}
                                                     onChange={this.handleInputChange}
                                                     type="text"
                                                     required
@@ -167,6 +183,7 @@ class RegisterStudent extends Component {
                                                     required
 
                                                 />
+
                                             </div>
                                             <div className="col-6">
                                                 <Input
@@ -261,18 +278,16 @@ class RegisterStudent extends Component {
                                                     name="emailConfirm"
                                                     maxLength="30"
 
-                                                    onChange={this.onChangeEmail}
+                                                    onChange={this.handleInputChange}
                                                     hint="ejemplo@mail.com"
                                                     type="email"
                                                     required />
-
                                             </div>
                                         </div>
                                         <div className="text-center py-4 mt-3">
                                             <button className="btn btn-outline-deep-orange" type="submit">Registrar</button>
                                         </div>
                                     </form>
-
                                 </CardBody>
                             </Card>
                         </Col>
@@ -282,7 +297,5 @@ class RegisterStudent extends Component {
             </div>
         );
     }
-
-
 }
 export default RegisterStudent;
