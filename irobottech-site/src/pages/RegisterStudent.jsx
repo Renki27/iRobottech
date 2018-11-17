@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Navbar from '../components/Navbar.jsx';
 import FooterPage from '../components/Footer.jsx';
 import './RegisterStudent.css';
-import { Container, Row, Col, Card, CardBody, Input, toast } from 'mdbreact';
+import { Container, Row, Col, Card, CardBody, Input } from 'mdbreact';
 
 
 
@@ -61,7 +61,7 @@ class RegisterStudent extends Component {
             });
         }
     }
-
+/*
     onChangeEmail(event) {
         const target = event.target;
         const value = target.value;
@@ -75,7 +75,7 @@ class RegisterStudent extends Component {
             this.setState({ emailErr: true });
         }
     }
-
+*/
 
     validateForm() {
         return (
@@ -102,13 +102,13 @@ class RegisterStudent extends Component {
         console.log(this.state);
     }
 
-
+/*
     validateEmail(event) {
         // regex from http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(event);
     }
-
+*/
 
 
     render() {

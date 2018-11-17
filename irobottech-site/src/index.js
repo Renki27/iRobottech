@@ -6,16 +6,16 @@ import * as serviceWorker from './serviceWorker';
 import "font-awesome/css/font-awesome.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
-//const app = require('./server/server');
+const app = require('./server/server');
 
 
 ReactDOM.render(<App />, document.getElementById('root'));
-/*
+
 //starting the server
 app.listen(app.get('port'), () => {
     console.log(`Server on port ${app.get('port')}`);
 });
-*/
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

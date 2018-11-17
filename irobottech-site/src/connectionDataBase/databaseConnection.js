@@ -1,4 +1,4 @@
-/*const mysql = require('mysql');
+const mysql = require('mysql');
 
 const mysqlConnection = mysql.createConnection({
   host: 'localhost',
@@ -17,4 +17,4 @@ mysqlConnection.connect(function (err) {
   }
 });
 
-module.exports = mysqlConnection; */
+module.exports = mysqlConnection; 

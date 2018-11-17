@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from '../components/Navbar.jsx';
 import FooterPage from '../components/Footer.jsx';
-import { Container, Row, Col, Card, CardBody } from 'mdbreact';
+import { Container } from 'mdbreact';
 class RegisterSecretary extends Component {
 
 
