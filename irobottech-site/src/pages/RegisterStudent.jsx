@@ -85,7 +85,7 @@ class RegisterStudent extends Component {
 
 
     handleSubmit = evt => {
-        fetch('/ruta', {
+        fetch('/RegisterStudent', {
             method: 'POST',
             body: JSON.stringify(this.state),
             headers: {
