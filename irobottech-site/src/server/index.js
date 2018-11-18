@@ -1,5 +1,5 @@
 
-const app = require('./server/server');
+const app = require('./server');
 
 
 //starting the server

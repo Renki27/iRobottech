@@ -2,7 +2,7 @@
   "name": "irobottech-site",
   "version": "0.1.0",
   "private": true,
-  "main": "src/index.js",
+  "main": "src/server/index.js",
   "dependencies": {
     "@material-ui/core": "^3.5.1",
     "babel-register": "^6.26.0",
