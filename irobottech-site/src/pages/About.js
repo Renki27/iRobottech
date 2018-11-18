@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Navbar from '../components/Navbar.jsx';
-import FooterPage from '../components/Footer.jsx';
+import Navbar from '../components/Navbar.js';
+import FooterPage from '../components/Footer.js';
 
 
 class About extends Component {

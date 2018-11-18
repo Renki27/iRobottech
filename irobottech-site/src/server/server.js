@@ -5,17 +5,18 @@ const app = express();
 
 
 // Settings 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8080);
 
 // Middlewares
 app.use(morgan('dev'));
 app.use(express.json());
 
 // Routes
-app.use('/RegisterStudent', require('../routes/registerStudentRoute'));
+app.use('/RegisterStudentRoute', require('../routes/registerStudentRoute'));
 
 
 // Static Files
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static('dist'));
+//app.use(express.static(path.join(__dirname, '../../public')));
 
 module.exports = app;
