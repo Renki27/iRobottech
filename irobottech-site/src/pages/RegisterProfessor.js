@@ -15,9 +15,6 @@ class RegisterProfessor extends Component {
       birthDate: "",
       phone: "",
       address: "",
-      guardianName: "",
-      guardianID: "",
-      emergencyPhone: "",
       email: "",
       emailConfirm: ""
     };
@@ -50,7 +47,7 @@ class RegisterProfessor extends Component {
   }
 
   handleSubmit = evt => {
-    fetch("/RegisterStudentRoute", {
+    fetch("/RegisterProfessorRoute", {
       method: "POST",
       body: JSON.stringify(this.state),
 
@@ -77,7 +74,7 @@ class RegisterProfessor extends Component {
             <Col md="8" className="mx-auto">
               <Card>
                 <h3 className="text-center font-weight-bold pl-0 my-4">
-                  Registro de estudiante
+                  Registro de Profesor
                 </h3>
                 <CardBody>
                   <form
@@ -180,44 +177,6 @@ class RegisterProfessor extends Component {
                           hint="Dirección exacta"
                           rows="1"
                           maxLength="250"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <p className="cyan-text">Datos del encargado:</p>
-                    <div className="row">
-                      <div className="col">
-                        <Input
-                          label="Nombre Completo Encargado"
-                          name="guardianName"
-                          value={this.state.guardianName}
-                          onChange={this.handleInputChange}
-                          type="text"
-                          maxLength="50"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col">
-                        <Input
-                          label="Cédula de encargado"
-                          name="guardianID"
-                          maxLength="25"
-                          value={this.state.guardianID}
-                          onChange={this.inputNumberValidator}
-                          type="text"
-                          required
-                        />
-                      </div>
-                      <div className="col">
-                        <Input
-                          label="Teléfono de encargado"
-                          name="emergencyPhone"
-                          maxLength="8"
-                          value={this.state.emergencyPhone}
-                          onChange={this.inputNumberValidator}
-                          type="text"
                           required
                         />
                       </div>

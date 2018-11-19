@@ -7,6 +7,7 @@ class RegisterStudent extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      //fields
       firstName: "",
       secondName: "",
       lastName1: "",
@@ -19,6 +20,20 @@ class RegisterStudent extends Component {
       guardianID: "",
       emergencyPhone: "",
       email: "",
+      emailConfirm: "",
+      //errors
+      firstNameError: "",
+      secondNameError: "",
+      lastName1Error: "",
+      lastName2Error: "",
+      idNumberError: "",
+      birthDateError: "",
+      phoneError: "",
+      addressError: "",
+      guardianNameError: "",
+      guardianIDError: "",
+      emergencyPhoneError: "",
+      emailError: "",
       emailConfirm: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -50,6 +65,7 @@ class RegisterStudent extends Component {
   }
 
   handleSubmit = evt => {
+    
     fetch("/RegisterStudentRoute", {
       method: "POST",
       body: JSON.stringify(this.state),
@@ -66,7 +82,24 @@ class RegisterStudent extends Component {
       .catch(err => console.error(err));
     evt.preventDefault();
     // console.log(this.state);
+    
+   /*
+    let emailOk = this.compareEmails(this.state.email, this.state.emailConfirm);
+    if (emailOk === true) {
+      alert("OK EMAIL");
+    } else {
+      alert("ERROR EMAIL");
+    }
+    */
   };
+
+  compareEmails(email, emailConfirm) {
+    if (emailConfirm === email) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   render() {
     return (
@@ -83,7 +116,6 @@ class RegisterStudent extends Component {
                   <form
                     className="needs-validation"
                     onSubmit={this.handleSubmit}
-                    noValidate
                   >
                     <label className="cyan-text">Datos personales:</label>
                     <div className="row">
@@ -97,6 +129,7 @@ class RegisterStudent extends Component {
                           className="form-control"
                           type="text"
                           required
+                          errorText={this.state.firstNameError}
                         />
                       </div>
                       <div className="col">
