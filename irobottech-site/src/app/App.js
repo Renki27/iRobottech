@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter } from 'react-router-dom'
 import Home from "../pages/Home.js";
 import About from "../pages/About.js";
 import Contact from "../pages/Contact";
@@ -17,7 +18,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <HashRouter>
         <div>
           {/* Component en minuscula */}
           <Route exact path="/" component={Home} />
@@ -38,7 +39,7 @@ class App extends Component {
           />
           <Route exact path="/RegisterAdmin" component={RegisterAdmin} />
         </div>
-      </Router>
+      </HashRouter>
     );
   }
 }
