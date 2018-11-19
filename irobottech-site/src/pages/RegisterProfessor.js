@@ -27,11 +27,11 @@ class RegisterProfessor extends Component {
   }
 
   handleInputChange(event) {
+    //  console.log(this.state);
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-    console.log(this.state);
   }
 
   inputNumberValidator(event) {
@@ -50,15 +50,13 @@ class RegisterProfessor extends Component {
   }
 
   handleSubmit = evt => {
-    console.log(`Estado completo: ${this.state}`);
-    console.log(JSON.stringify(this.state));
     fetch("/RegisterStudentRoute", {
       method: "POST",
       body: JSON.stringify(this.state),
 
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json"
       }
     })
       .then(res => res.json())
@@ -67,7 +65,7 @@ class RegisterProfessor extends Component {
       })
       .catch(err => console.error(err));
     evt.preventDefault();
-    //console.log(this.state);
+    // console.log(this.state);
   };
 
   render() {

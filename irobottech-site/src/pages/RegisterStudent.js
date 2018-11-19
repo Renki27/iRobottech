@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "../components/Navbar.js";
 import FooterPage from "../components/Footer.js";
-import "./RegisterStudent.css";
 import { Container, Row, Col, Card, CardBody, Input } from "mdbreact";
 
 class RegisterStudent extends Component {
@@ -22,20 +21,17 @@ class RegisterStudent extends Component {
       email: "",
       emailConfirm: ""
     };
-
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.inputNumberValidator = this.inputNumberValidator.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInputChange(event) {
+    //  console.log(this.state);
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-
-    //this.setState({ ...this.state, [event.target.name]: event.target.value })
   }
 
   inputNumberValidator(event) {
@@ -52,34 +48,9 @@ class RegisterStudent extends Component {
       });
     }
   }
-  /*
-        onChangeEmail(event) {
-            const target = event.target;
-            const value = target.value;
-            const name = target.name;
-            const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    
-            if (value.match(re) || (value === '')) {
-                this.setState({ emailErr: false });
-                this.setState({ [name]: value });
-            } else {
-                this.setState({ emailErr: true });
-            }
-        }
-    */
-
-  validateForm() {
-    return (
-      this.state.name.length > 0 &&
-      this.state.phone.length === 8 &&
-      this.state.id.lengh < 9
-    );
-  }
 
   handleSubmit = evt => {
-    console.log(`Estado completo: ${this.state}`);
-    console.log(JSON.stringify(this.state));
-    fetch("/RegisterStudent", {
+    fetch("/RegisterStudentRoute", {
       method: "POST",
       body: JSON.stringify(this.state),
 
@@ -94,15 +65,8 @@ class RegisterStudent extends Component {
       })
       .catch(err => console.error(err));
     evt.preventDefault();
-    //console.log(this.state);
+    // console.log(this.state);
   };
-  /*
-        validateEmail(event) {
-            // regex from http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
-            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(event);
-        }
-    */
 
   render() {
     return (
@@ -119,6 +83,7 @@ class RegisterStudent extends Component {
                   <form
                     className="needs-validation"
                     onSubmit={this.handleSubmit}
+                    noValidate
                   >
                     <label className="cyan-text">Datos personales:</label>
                     <div className="row">

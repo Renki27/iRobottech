@@ -21,7 +21,7 @@ router.post("/", (req, res) => {
     secondName: req.body.secondName,
     lastName1: req.body.lastName1,
     lastName2: req.body.lastName2,
-    birth_date: req.body.birth_date,
+    birthDate: req.body.birthDate,
     phone: req.body.phone,
     address: req.body.address,
     guardianName: req.body.guardianName,
@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
       person.secondName,
       person.lastName1,
       person.lastName2,
-      person.birth_date,
+      person.birthDate,
       person.phone,
       person.address,
       person.guardianName,
@@ -50,10 +50,7 @@ router.post("/", (req, res) => {
     ],
     (err, rows, fields) => {
       if (!err) {
-        //res.json({ status: "Student Registered" });
-        res.json(
-          "REEEECIIIIIVIDOOOOOOOOOOOOOOO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" );
-          console.log(rows);
+        res.json({ status: "Student Registered" });
       } else {
         console.log(err);
         console.log(rows);
