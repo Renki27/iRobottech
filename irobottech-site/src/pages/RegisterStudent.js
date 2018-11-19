@@ -77,26 +77,24 @@ class RegisterStudent extends Component {
   }
 
   handleSubmit = evt => {
-    /*
-        fetch('/RegisterStudent', {
-            method: 'POST',
-            body: JSON.stringify(this.state),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-            })
-            .catch(err => console.error(err));
-        evt.preventDefault();
-        console.log(this.state);
-         */
+    console.log(`Estado completo: ${this.state}`);
+    console.log(JSON.stringify(this.state));
+    fetch("/RegisterStudent", {
+      method: "POST",
+      body: JSON.stringify(this.state),
 
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => console.error(err));
     evt.preventDefault();
-    console.log(this.state);
+    //console.log(this.state);
   };
   /*
         validateEmail(event) {

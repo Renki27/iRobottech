@@ -7,7 +7,19 @@ class RegisterProfessor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: ""
+      firstName: "",
+      secondName: "",
+      lastName1: "",
+      lastName2: "",
+      idNumber: "",
+      birthDate: "",
+      phone: "",
+      address: "",
+      guardianName: "",
+      guardianID: "",
+      emergencyPhone: "",
+      email: "",
+      emailConfirm: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.inputNumberValidator = this.inputNumberValidator.bind(this);
@@ -37,13 +49,16 @@ class RegisterProfessor extends Component {
     }
   }
 
-  handleSubmit = evt =>  {
-    fetch("/RegisterStudent", {
+  handleSubmit = evt => {
+    console.log(`Estado completo: ${this.state}`);
+    console.log(JSON.stringify(this.state));
+    fetch("/RegisterStudentRoute", {
       method: "POST",
       body: JSON.stringify(this.state),
+
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
       }
     })
       .then(res => res.json())
@@ -52,8 +67,8 @@ class RegisterProfessor extends Component {
       })
       .catch(err => console.error(err));
     evt.preventDefault();
-    console.log(this.state);
-  }
+    //console.log(this.state);
+  };
 
   render() {
     return (
@@ -70,6 +85,7 @@ class RegisterProfessor extends Component {
                   <form
                     className="needs-validation"
                     onSubmit={this.handleSubmit}
+                    noValidate
                   >
                     <label className="cyan-text">Datos personales:</label>
                     <div className="row">
