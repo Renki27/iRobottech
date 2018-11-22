@@ -6,7 +6,7 @@ class ProfessorDashboard extends Component {
     return (
       <div>
         <div className="container">
-          <h1>ADMIN DASHBOARD</h1>
+          <h1>PROFESSOR DASHBOARD------------------</h1>
         </div>
       </div>
     );

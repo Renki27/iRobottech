@@ -13,7 +13,7 @@ router.post("/login", (req, res) => {
   Account.findOne({
     where: {
       email: req.body.email,
-      account_type: req.body.accountType,
+      account_type: req.body.account_type,
       status: 'ACTIVE'
     }
   })

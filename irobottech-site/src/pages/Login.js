@@ -11,7 +11,7 @@ class Login extends Component {
     super(props);
 
     this.state = {
-      accountType: "",
+      account_type: "",
       email: "",
       password: ""
     };
@@ -34,7 +34,7 @@ class Login extends Component {
     event.preventDefault(); //previene el metodo default de un objeto
 
     const account = {
-      accountType: this.state.accountType,
+      account_type: this.state.account_type,
       email: this.state.email,
       password: this.state.password
     };
@@ -70,9 +70,9 @@ class Login extends Component {
                       <FormControl required>
                         <label>Tipo de Cuenta</label>
                         <Select
-                          name="accountType"
+                          name="account_type"
                           onChange={this.handleChange}
-                          value={this.state.accountType}
+                          value={this.state.account_type}
                           errorText="sadasd"
                           inputProps={{
                             id: "acc-required"

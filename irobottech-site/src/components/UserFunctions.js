@@ -3,7 +3,7 @@ import axios from "axios";
 export const login = account => {
   return axios
     .post("users/login", {
-      accountType: account.accountType,
+      account_type: account.account_type,
       email: account.email,
       password: account.password
     })

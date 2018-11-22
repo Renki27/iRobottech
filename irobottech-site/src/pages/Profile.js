@@ -3,6 +3,11 @@ import jwt_decode from "jwt-decode";
 import AdminDashboard from "./AdminDashboard";
 import ProfessorDashboard from "./ProfessorDashboard";
 
+const adminView = <AdminDashboard />;
+const professorView = <ProfessorDashboard />;
+const selection = "";
+const selector = "";
+
 class Profile extends Component {
   constructor() {
     super();
@@ -11,6 +16,7 @@ class Profile extends Component {
       email: "",
       accountType: ""
     };
+    this.dashboardSelector = this.dashboardSelector.bind(this);
   }
 
   componentDidMount() {
@@ -19,19 +25,27 @@ class Profile extends Component {
     this.setState({
       username: decoded.username,
       email: decoded.email,
-      accountType: decoded.accountType
+      account_type: decoded.account_type
     });
   }
 
-  render() {
-    const adminView = <AdminDashboard />;
-    const professorView = <AdminDashboard />;
+  dashboardSelector(account_type) {
+    switch (account_type) {
+      case "ADMIN":
+        return adminView;
+      case "PROFESSOR":
+        return professorView;
+      default:
+        return "";
+    }
+  }
 
+  render() {
     return (
       <div>
-        {adminView}
+        {this.dashboardSelector(this.state.account_type)}
         <h1>{this.state.email}</h1>
-        <h1>{this.state.accountType}</h1>
+        <h1>{this.state.account_type}</h1>
       </div>
     );
   }
