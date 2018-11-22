@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Navbar from "../components/Navbar.js";
 import FooterPage from "../components/Footer.js";
 import { Container, Row, Col, Card, CardBody, Input } from "mdbreact";
 
@@ -68,7 +67,6 @@ class RegisterSecretary extends Component {
   render() {
     return (
       <div>
-        <Navbar />
         <Container className="mt-5">
           <Row className="mt-6">
             <Col md="8" className="mx-auto">
