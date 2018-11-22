@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Input, Button, Card, label } from "mdbreact";
-import Navbar from "../components/Navbar.js";
-import FooterPage from "../components/Footer.js";
 import "./Login.css";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
@@ -80,10 +78,10 @@ class Login extends Component {
                             id: "acc-required"
                           }}
                         >
-                          <MenuItem value={"admin"}>Administrador</MenuItem>
-                          <MenuItem value={"Sec"}>Secretario/a</MenuItem>
-                          <MenuItem value={"Prof"}>Profesor</MenuItem>
-                          <MenuItem value={"stud"}>Estudiante</MenuItem>
+                          <MenuItem value={"ADMIN"}>Administrador</MenuItem>
+                          <MenuItem value={"SECRETARY"}>Secretario/a</MenuItem>
+                          <MenuItem value={"PROFESSOR"}>Profesor</MenuItem>
+                          <MenuItem value={"STUDENT"}>Estudiante</MenuItem>
                         </Select>
                       </FormControl>
                       <Input
@@ -123,7 +121,6 @@ class Login extends Component {
             </Row>
           </section>
         </Container>
-        <FooterPage />
       </div>
     );
   }

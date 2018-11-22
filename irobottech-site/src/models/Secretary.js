@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 const mysqlConnection = require("../connectionDataBase/databaseConnection");
 
 module.exports = mysqlConnection.sequelize.define(
-  "ACCOUNT",
+  "SECRETARY",
   {
     id_account: {
       type: Sequelize.INTEGER,
@@ -28,6 +28,6 @@ module.exports = mysqlConnection.sequelize.define(
   },
   {
     timestamps: false,
-    tableName: 'ACCOUNT'
+    tableName: "SECRETARY"
   }
 );

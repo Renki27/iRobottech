@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from '../components/Navbar.js';
-import FooterPage from '../components/Footer.js';
 import HomeCarousel from '../components/Carousel';
 
 class Home extends Component {
@@ -11,7 +9,7 @@ class Home extends Component {
                 <div className="container">
                 
                 </div>
-                <FooterPage />
+
             </div>
         );
     }

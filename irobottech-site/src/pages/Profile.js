@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import jwt_decode from "jwt-decode";
+import AdminDashboard from "./AdminDashboard";
+import ProfessorDashboard from "./ProfessorDashboard";
 
 class Profile extends Component {
   constructor() {
@@ -22,11 +24,14 @@ class Profile extends Component {
   }
 
   render() {
+    const adminView = <AdminDashboard />;
+    const professorView = <AdminDashboard />;
+
     return (
       <div>
-        <h1>{this.state.accountType}</h1>
-        <h1>{this.state.username}</h1>
+        {adminView}
         <h1>{this.state.email}</h1>
+        <h1>{this.state.accountType}</h1>
       </div>
     );
   }

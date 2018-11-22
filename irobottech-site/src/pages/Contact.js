@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import FooterPage from '../components/Footer.js';
 import { Container, Row, Col, Input, Button, Fa, Card, CardBody } from 'mdbreact';
 import './Contact.css';
 
@@ -47,7 +46,6 @@ class Contact extends Component {
                         </Row>
                     </Container>
                 </div>
-                <FooterPage />
             </div>
         );
     }

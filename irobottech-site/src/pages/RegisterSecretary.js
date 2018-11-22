@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import FooterPage from "../components/Footer.js";
 import { Container, Row, Col, Card, CardBody, Input } from "mdbreact";
 
 class RegisterSecretary extends Component {
@@ -221,7 +220,6 @@ class RegisterSecretary extends Component {
             </Col>
           </Row>
         </Container>
-        <FooterPage />
       </div>
     );
   }

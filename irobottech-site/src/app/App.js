@@ -6,7 +6,7 @@ import About from "../pages/About.js";
 import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import RegisterStudent from "../pages/RegisterStudent";
-import AdminDashboard from "../pages/AdminDashboard";
+import FooterPage from '../components/Footer.js';
 import RegisterProfessor from "../pages/RegisterProfessor";
 import RegisterSecretary from "../pages/RegisterSecretary";
 import RegisterAdmin from "../pages/RegisterAdmin";
@@ -28,7 +28,6 @@ class App extends Component {
             <Route exact path="/Contact" component={Contact} />
             <Route exact path="/Login" component={Login} />
             <Route exact path="/RegisterStudent" component={RegisterStudent} />
-            <Route exact path="/AdminDashboard" component={AdminDashboard} />
             <Route exact path="/profile" component={Profile} />
             <Route
               exact
@@ -42,6 +41,7 @@ class App extends Component {
             />
             <Route exact path="/RegisterAdmin" component={RegisterAdmin} />
           </div>
+          <FooterPage />
         </div>
       </HashRouter>
     );

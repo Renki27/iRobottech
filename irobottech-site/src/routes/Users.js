@@ -4,15 +4,17 @@ const mysqlConnection = require("../connectionDataBase/databaseConnection");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 //const bcrypt = require("bcrypt");
-const Account = require("../models/User");
-
+const Account = require("../models/Account");
 router.use(cors());
 
 process.env.SECRET_KEY = "secret";
 router.post("/login", (req, res) => {
+
   Account.findOne({
     where: {
-      email: req.body.email
+      email: req.body.email,
+      account_type: req.body.accountType,
+      status: 'ACTIVE'
     }
   })
     .then(account => {
@@ -20,7 +22,7 @@ router.post("/login", (req, res) => {
         //bcrypt.compareSync(req.body.password, account.password
         if ((req.body.password == account.password)) {
           let token = jwt.sign(account.dataValues, process.env.SECRET_KEY, {
-            expiresIn: 1440
+            expiresIn: 1440 //SEGUNDOS
           });
           res.send(token);
         } else {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import FooterPage from '../components/Footer.js';
 
 
 class About extends Component {
@@ -14,7 +13,6 @@ class About extends Component {
                         asdig gaisdg ausydg uasdg uasgd uaysgduy gayguyg uyguy gusyag dqg8wd gasd 8gasd 8g8q2 gd87wgdqwgdasidg isa7gd as7isas
                 </p>
                 </div>
-                <FooterPage />
             </div>
         );
     }

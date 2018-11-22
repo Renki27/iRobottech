@@ -12,7 +12,7 @@ class MyNavbar extends Component {
 
   render() {
     const noUserAuth = (
-      <ul>
+      <ul  className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/login">
             Login
@@ -22,16 +22,16 @@ class MyNavbar extends Component {
     );
 
     const userAuth = (
-      <ul>
+      <ul  className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/profile">
             Profile
           </Link>
         </li>
         <li className="nav-item">
-          <a href="" className="nav-link" onClick={this.logOut.bind(this)}>
+          <Link to="" className="nav-link" onClick={this.logOut.bind(this)}>
             LogOut
-          </a>
+          </Link>
         </li>
       </ul>
     );
