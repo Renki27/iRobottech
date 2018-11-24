@@ -1,12 +1,16 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { HashRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import Home from "../pages/Home.js";
 import About from "../pages/About.js";
 import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import RegisterStudent from "../pages/RegisterStudent";
-import FooterPage from '../components/Footer.js';
+import FooterPage from "../components/Footer.js";
 import RegisterProfessor from "../pages/RegisterProfessor";
 import RegisterSecretary from "../pages/RegisterSecretary";
 import RegisterAdmin from "../pages/RegisterAdmin";
@@ -18,7 +22,7 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <HashRouter>
+      <Switch>
         <div className="App">
           {/* Component en minuscula */}
           <Navbar />
@@ -40,10 +44,11 @@ class App extends Component {
               component={RegisterSecretary}
             />
             <Route exact path="/RegisterAdmin" component={RegisterAdmin} />
+           
           </div>
           <FooterPage />
         </div>
-      </HashRouter>
+      </Switch>
     );
   }
 }
